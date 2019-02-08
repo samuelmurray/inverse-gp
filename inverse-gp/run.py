@@ -67,18 +67,18 @@ def run():
             test_x = torch.linspace(-1, 2, 200)
             observed_pred = likelihood(model(test_x))
             # Initialize plot
-            f, ax = plt.subplots(1, 1, figsize=(4, 3))
+            f, (ax1, ax2) = plt.subplots(2, 1, figsize=(4, 3))
 
             # Get upper and lower confidence bounds
             lower, upper = observed_pred.confidence_region()
             # Plot training data as black stars
-            ax.plot(x.numpy(), y.numpy(), 'k*')
+            ax1.plot(x.numpy(), y.numpy(), 'k*')
             # Plot predictive means as blue line
-            ax.plot(test_x.numpy(), observed_pred.mean.numpy(), 'b')
+            ax1.plot(test_x.numpy(), observed_pred.mean.numpy(), 'b')
             # Shade between the lower and upper confidence bounds
-            ax.fill_between(test_x.numpy(), lower.numpy(), upper.numpy(), alpha=0.5)
-            ax.set_ylim([-3, 3])
-            ax.legend(['Observed Data', 'Mean', 'Confidence'])
+            ax1.fill_between(test_x.numpy(), lower.numpy(), upper.numpy(), alpha=0.5)
+            ax1.set_ylim([-3, 3])
+            ax1.legend(['Observed Data', 'Mean', 'Confidence'])
             plt.show()
             time.sleep(1)
 
