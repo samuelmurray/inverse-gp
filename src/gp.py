@@ -2,8 +2,8 @@ import gpytorch
 
 
 class GP(gpytorch.models.ExactGP):
-    def __init__(self, train_x, train_y, likelihood):
-        super(GP, self).__init__(train_x, train_y, likelihood)
+    def __init__(self, likelihood):
+        super(GP, self).__init__(None, None, likelihood)
         self.mean_module = gpytorch.means.ConstantMean()
         self.covar_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
 
