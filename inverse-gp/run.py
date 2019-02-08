@@ -1,5 +1,6 @@
 import torch
 import gpytorch
+from matplotlib import pyplot as plt
 
 from gp import GP
 from acquisition_function import AcquisitionFunction
@@ -59,6 +60,24 @@ def run():
         y_new = simulator(x_new)
         x = torch.cat((x, x_new), 0)
         y = torch.cat((y, y_new), 0)
+
+        with torch.no_grad():
+            test_x = torch.linspace(-1, 2, 200)
+            observed_pred = likelihood(model(test_x))
+            # Initialize plot
+            f, ax = plt.subplots(1, 1, figsize=(4, 3))
+
+            # Get upper and lower confidence bounds
+            lower, upper = observed_pred.confidence_region()
+            # Plot training data as black stars
+            ax.plot(x.numpy(), y.numpy(), 'k*')
+            # Plot predictive means as blue line
+            ax.plot(test_x.numpy(), observed_pred.mean.numpy(), 'b')
+            # Shade between the lower and upper confidence bounds
+            ax.fill_between(test_x.numpy(), lower.numpy(), upper.numpy(), alpha=0.5)
+            ax.set_ylim([-3, 3])
+            ax.legend(['Observed Data', 'Mean', 'Confidence'])
+            plt.show()
 
 
 if __name__ == '__main__':
