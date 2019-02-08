@@ -2,6 +2,10 @@ import torch
 import gpytorch
 
 from gp import GP
+from acquisition_function import AcquisitionFunction
+from simple_simulator import SimpleSimulator
+from simulator import Simulator
+
 
 def train(model, likelihood):
     model.train()
@@ -33,8 +37,28 @@ def train(model, likelihood):
 
 
 def run():
+    simulator = Simulator()
+    simple_simulator = SimpleSimulator()
+    x = torch.linspace(0, 1, 20)
+    y = simulator(x)
+
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
-    model = GP(likelihood)
+    model = GP(x, y, likelihood)
+    print(model.get_inputs()[0])
+
+    train(model, likelihood)
+
+    acquisition_function = AcquisitionFunction(model, simple_simulator)
+
+    max_iter = 10
+    for i in range(max_iter):
+        candidate_set = torch.linspace(-1, 2, 100)
+        expected_improvement = acquisition_function(x, y, candidate_set)
+        best_index = torch.argmax(expected_improvement)
+        x_new = torch.unsqueeze(candidate_set[best_index], 0)
+        y_new = simulator(x_new)
+        x = torch.cat((x, x_new), 0)
+        y = torch.cat((y, y_new), 0)
 
 
 if __name__ == '__main__':
