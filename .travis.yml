@@ -1,0 +1,11 @@
+os:
+  - linux
+  - osx
+dist: xenial
+language: python
+python:
+  - "3.7"
+install:
+  - pip install .[test]
+script:
+  - pytest
