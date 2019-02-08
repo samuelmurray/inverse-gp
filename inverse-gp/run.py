@@ -81,6 +81,7 @@ def run():
             ax1.legend(['Observed Data', 'Mean', 'Confidence'])
 
             ax2.plot(candidate_set.numpy(), expected_improvement.numpy())
+            ax2.scatter(x_new, expected_improvement[best_index])
 
             plt.show()
             time.sleep(1)
