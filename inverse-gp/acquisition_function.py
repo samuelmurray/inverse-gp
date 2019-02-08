@@ -1,7 +1,6 @@
 import gpytorch
 import torch
 from torch.distributions.normal import Normal
-import numpy as np
 
 from gp import GP
 
@@ -16,17 +15,12 @@ class AcquisitionFunction(gpytorch.Module):
     def forward(self, x, y, candidate_set):
         self.model.eval()
         self.model.likelihood.eval()
-        #self.model.train_inputs = x
-        #self.model.set_train_data(x, y)
-        model = self.model.get_fantasy_model(x, y)
-        #self.model.train_targets = y
+        self.model.set_train_data(x, y, strict=False)
 
         pred = self.model.likelihood(self.model(candidate_set))
-
         mu = pred.mean.detach()
         var = pred.variance.detach()
-        std = np.sqrt(var)
-
+        std = torch.sqrt(var)
         best_y = torch.max(y)
 
         u = (best_y - mu) / std
