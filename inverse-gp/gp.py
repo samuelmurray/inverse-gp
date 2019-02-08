@@ -7,6 +7,9 @@ class GP(gpytorch.models.ExactGP):
         self.mean_module = gpytorch.means.ConstantMean()
         self.covariance_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
 
+    def get_inputs(self):
+        return self.train_inputs[0]
+
     def forward(self, x):
         mean_x = self.mean_module(x)
         covariance_x = self.covariance_module(x)
