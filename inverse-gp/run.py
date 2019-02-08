@@ -79,6 +79,9 @@ def run():
             ax1.fill_between(test_x.numpy(), lower.numpy(), upper.numpy(), alpha=0.5)
             ax1.set_ylim([-3, 3])
             ax1.legend(['Observed Data', 'Mean', 'Confidence'])
+
+            ax2.plot(candidate_set.numpy(), expected_improvement.numpy())
+
             plt.show()
             time.sleep(1)
 
