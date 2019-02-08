@@ -1,3 +1,5 @@
+import time
+
 import torch
 import gpytorch
 from matplotlib import pyplot as plt
@@ -78,6 +80,7 @@ def run():
             ax.set_ylim([-3, 3])
             ax.legend(['Observed Data', 'Mean', 'Confidence'])
             plt.show()
+            time.sleep(1)
 
 
 if __name__ == '__main__':
