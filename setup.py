@@ -36,6 +36,9 @@ setup(
     test_suite=NAME + "." + TEST_DIR,
     install_requires=REQUIRED,
     extras_require={
+        "example": [
+            "matplotlib",
+        ],
         "test": [
             "scipy",
             "scikit-learn",
