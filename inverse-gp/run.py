@@ -31,10 +31,10 @@ def train(model, likelihood):
         # Calc loss and backprop gradients
         loss = -mll(output, model.train_targets)
         loss.backward()
-        print('Iter %d/%d - Loss: %.3f   log_lengthscale: %.3f   log_noise: %.3f' % (
+        print('Iter %d/%d - Loss: %.3f   lengthscale: %.3f   noise: %.3f' % (
             i + 1, training_iter, loss.item(),
-            model.covariance_module.base_kernel.log_lengthscale.item(),
-            model.likelihood.log_noise.item()
+            model.covariance_module.base_kernel.lengthscale.item(),
+            model.likelihood.noise.item()
         ))
         optimizer.step()
 
