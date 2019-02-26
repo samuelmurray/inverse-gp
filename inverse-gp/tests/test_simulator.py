@@ -2,7 +2,12 @@ import unittest
 
 import torch
 
-from simulators import HeavySimulator
+from simulators import Simulator, HeavySimulator
+
+
+class TestSimulator(unittest.TestCase):
+    def test_abc(self) -> None:
+        self.assertRaises(TypeError, Simulator)
 
 
 class TestHeavySimulator(unittest.TestCase):
