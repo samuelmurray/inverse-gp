@@ -4,7 +4,7 @@ import torch
 
 class GP(gpytorch.models.ExactGP):
     def __init__(self, x: torch.Tensor, y: torch.Tensor, likelihood: gpytorch.likelihoods.Likelihood) -> None:
-        super(GP, self).__init__(x, y, likelihood)
+        super().__init__(x, y, likelihood)
         self.mean_module = gpytorch.means.ConstantMean()
         self.covariance_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
 
