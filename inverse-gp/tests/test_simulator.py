@@ -11,3 +11,7 @@ class TestSimulator(unittest.TestCase):
         x = torch.linspace(0, 1, 20)
         y = simulator(x)
         self.assertEqual(x.shape, y.shape)
+
+
+if __name__ == "__main__":
+    unittest.main()
