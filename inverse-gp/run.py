@@ -5,7 +5,7 @@ import gpytorch
 from matplotlib import pyplot as plt
 
 from gp import GP
-from acquisition_function import AcquisitionFunction
+from acquisition_functions import AcquisitionFunction
 from simulators import SimpleSimulator
 from simulators import HeavySimulator
 
