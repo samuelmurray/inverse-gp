@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from heavy_simulator import HeavySimulator
+from simulators import HeavySimulator
 
 
 class TestSimulator(unittest.TestCase):
