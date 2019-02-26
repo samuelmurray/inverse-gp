@@ -9,4 +9,4 @@ class HeavySimulator(Simulator):
         super().__init__()
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return torch.sin(x * (2 * np.pi)) + torch.randn(x.size()) * 0.2
+        return torch.sum(torch.sin(x * (2 * np.pi)) + torch.randn(x.size()) * 0.2, dim=(1,))
