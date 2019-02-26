@@ -15,9 +15,9 @@ class TestExpectedImprovement(unittest.TestCase):
         heavy_simulator = HeavySimulator()
         self.x = torch.Tensor(np.random.normal(size=[10, 2]))
         self.input_train = simple_simulator(self.x)
-        self.y = heavy_simulator(self.x)
+        self.output_train = heavy_simulator(self.x)
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
-        self.model = GP(self.input_train, self.y, self.likelihood)
+        self.model = GP(self.input_train, self.output_train, self.likelihood)
 
     def test_get_inputs(self) -> None:
         model_inputs = self.model.get_inputs()
