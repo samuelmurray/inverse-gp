@@ -4,7 +4,7 @@ import torch
 import gpytorch
 from matplotlib import pyplot as plt
 
-from gp import GP
+from model import GP
 from acquisition_functions import ExpectedImprovement
 from simulators import SimpleSimulator
 from simulators import HeavySimulator

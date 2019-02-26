@@ -6,7 +6,7 @@ import torch
 
 from acquisition_functions import ExpectedImprovement
 from simulators import SimpleSimulator
-from gp import GP
+from model import GP
 
 
 class TestExpectedImprovement(unittest.TestCase):
