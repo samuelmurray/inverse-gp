@@ -11,9 +11,9 @@ from invgp.simulator import HeavySimulator
 
 class TestExpectedImprovement(unittest.TestCase):
     def test_call(self) -> None:
-        simulator = HeavySimulator()
+        heavy_simulator = HeavySimulator()
         x = torch.linspace(0, 1, 20)
-        y = simulator(x)
+        y = heavy_simulator(x)
         likelihood = gpytorch.likelihoods.GaussianLikelihood()
         model = GP(x, y, likelihood)
         acquisition_function = ExpectedImprovement(model)
