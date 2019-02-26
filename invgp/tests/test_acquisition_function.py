@@ -14,7 +14,8 @@ class TestExpectedImprovement(unittest.TestCase):
         np.random.seed(1534315123)
         simple_simulator = SimpleSimulator()
         heavy_simulator = HeavySimulator()
-        x = torch.Tensor(np.random.normal(size=[10, 2]))
+        num_data = 10
+        x = torch.Tensor(np.random.normal(size=[num_data, 2]))
         y = heavy_simulator(x)
         likelihood = gpytorch.likelihoods.GaussianLikelihood()
         model = SimulatorGP(x, y, likelihood, simple_simulator)
