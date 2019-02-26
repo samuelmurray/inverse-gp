@@ -2,4 +2,4 @@
 Package for all simulators
 """
 
-from .acquisition_function import AcquisitionFunction
+from .expected_improvement import ExpectedImprovement

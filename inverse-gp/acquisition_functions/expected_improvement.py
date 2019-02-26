@@ -5,7 +5,7 @@ from torch.distributions.normal import Normal
 from gp import GP
 
 
-class AcquisitionFunction(gpytorch.Module):
+class ExpectedImprovement(gpytorch.Module):
     def __init__(self, model: GP, simulator) -> None:
         super().__init__()
         self.model = model
