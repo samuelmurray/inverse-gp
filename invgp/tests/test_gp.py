@@ -9,7 +9,7 @@ from invgp.model import GP
 
 class TestExpectedImprovement(unittest.TestCase):
     def setUp(self) -> None:
-        np.random.seed(1534531512423)
+        np.random.seed(1534315123)
         self.x = torch.Tensor(np.random.normal(size=[10, 2]))
         self.y = self.x.sin()
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
