@@ -7,7 +7,7 @@ from matplotlib import pyplot as plt
 from gp import GP
 from acquisition_function import AcquisitionFunction
 from simple_simulator import SimpleSimulator
-from simulator import Simulator
+from heavy_simulator import HeavySimulator
 
 
 def train(model, likelihood):
@@ -40,7 +40,7 @@ def train(model, likelihood):
 
 
 def run():
-    simulator = Simulator()
+    simulator = HeavySimulator()
     simple_simulator = SimpleSimulator()
     x = torch.linspace(0, 1, 20)
     y = simulator(x)

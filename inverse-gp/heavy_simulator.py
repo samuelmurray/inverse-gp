@@ -2,7 +2,7 @@ import torch
 import numpy as np
 
 
-class Simulator:
+class HeavySimulator:
     def __init__(self) -> None:
         pass
 
