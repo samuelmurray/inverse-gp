@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 
-from simulators.simulator import Simulator
+from simulator.simulator import Simulator
 
 
 class HeavySimulator(Simulator):

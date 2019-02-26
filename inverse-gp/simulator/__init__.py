@@ -1,5 +1,5 @@
 """
-Package for all simulators
+Package for all simulator
 """
 
 from .simulator import Simulator

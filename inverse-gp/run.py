@@ -5,9 +5,9 @@ import gpytorch
 from matplotlib import pyplot as plt
 
 from model import GP
-from acquisition_functions import ExpectedImprovement
-from simulators import SimpleSimulator
-from simulators import HeavySimulator
+from acquisition_function import ExpectedImprovement
+from simulator import SimpleSimulator
+from simulator import HeavySimulator
 
 
 def train(model, likelihood):

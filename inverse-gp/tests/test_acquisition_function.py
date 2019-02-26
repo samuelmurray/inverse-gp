@@ -4,8 +4,8 @@ import gpytorch
 import numpy as np
 import torch
 
-from acquisition_functions import ExpectedImprovement
-from simulators import SimpleSimulator
+from acquisition_function import ExpectedImprovement
+from simulator import SimpleSimulator
 from model import GP
 
 
