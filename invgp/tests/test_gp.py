@@ -21,7 +21,7 @@ class TestExpectedImprovement(unittest.TestCase):
 
     def test_get_inputs(self) -> None:
         model_inputs = self.model.get_inputs()
-        self.assertTrue(self.x.equal(model_inputs))
+        self.assertTrue(torch.equal(self.input_train, model_inputs))
 
 
 if __name__ == "__main__":
