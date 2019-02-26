@@ -1,13 +1,13 @@
 import time
 
-import torch
 import gpytorch
+import torch
 from matplotlib import pyplot as plt
 
-from model import GP
 from acquisition_function import ExpectedImprovement
-from simulator import SimpleSimulator
+from model import GP
 from simulator import HeavySimulator
+from simulator import SimpleSimulator
 
 
 def train(model, likelihood):

@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-NAME = "inverse-gp"
+NAME = "invgp"
 DESCRIPTION = "Framework for solving inverse problems using GPs"
 URL = "https://github.com/samuelmurray/inverse-gp"
 EMAIL = "samuelmu@kth.se"

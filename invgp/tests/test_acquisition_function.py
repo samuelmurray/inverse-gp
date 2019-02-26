@@ -5,8 +5,8 @@ import numpy as np
 import torch
 
 from acquisition_function import ExpectedImprovement
-from simulator import SimpleSimulator
 from model import GP
+from simulator import SimpleSimulator
 
 
 class TestExpectedImprovement(unittest.TestCase):
