@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from simulators import Simulator, HeavySimulator
+from simulators import *
 
 
 class TestSimulator(unittest.TestCase):
@@ -13,6 +13,14 @@ class TestSimulator(unittest.TestCase):
 class TestHeavySimulator(unittest.TestCase):
     def test_call(self) -> None:
         simulator = HeavySimulator()
+        x = torch.linspace(0, 1, 20)
+        y = simulator(x)
+        self.assertEqual(x.shape, y.shape)
+
+
+class TestSimpleSimulator(unittest.TestCase):
+    def test_call(self) -> None:
+        simulator = SimpleSimulator()
         x = torch.linspace(0, 1, 20)
         y = simulator(x)
         self.assertEqual(x.shape, y.shape)
