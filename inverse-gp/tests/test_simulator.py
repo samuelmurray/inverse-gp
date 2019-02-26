@@ -5,7 +5,7 @@ import torch
 from simulators import HeavySimulator
 
 
-class TestSimulator(unittest.TestCase):
+class TestHeavySimulator(unittest.TestCase):
     def test_call(self) -> None:
         simulator = HeavySimulator()
         x = torch.linspace(0, 1, 20)
