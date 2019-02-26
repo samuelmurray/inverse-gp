@@ -11,9 +11,9 @@ from invgp.simulator import HeavySimulator
 class TestExpectedImprovement(unittest.TestCase):
     def setUp(self) -> None:
         np.random.seed(1534315123)
+        heavy_simulator = HeavySimulator()
         self.x = torch.Tensor(np.random.normal(size=[10, 2]))
-        simulator = HeavySimulator()
-        self.y = simulator(self.x)
+        self.y = heavy_simulator(self.x)
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.x, self.y, self.likelihood)
 
