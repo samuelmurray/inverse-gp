@@ -12,6 +12,9 @@ class TestSimulator(unittest.TestCase):
 
 
 class TestHeavySimulator(unittest.TestCase):
+    def setUp(self):
+        np.random.seed(1534315123)
+
     def test_call(self) -> None:
         simulator = HeavySimulator()
         x = torch.Tensor(np.random.normal(size=[10, 2]))
@@ -20,6 +23,9 @@ class TestHeavySimulator(unittest.TestCase):
 
 
 class TestSimpleSimulator(unittest.TestCase):
+    def setUp(self):
+        np.random.seed(1534315123)
+
     def test_call(self) -> None:
         simulator = SimpleSimulator()
         x = torch.Tensor(np.random.normal(size=[10, 2]))
