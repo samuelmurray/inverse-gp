@@ -16,7 +16,7 @@ class TestExpectedImprovement(unittest.TestCase):
         y = simulator(x)
         likelihood = gpytorch.likelihoods.GaussianLikelihood()
         model = GP(x, y, likelihood)
-        acquisition_function = ExpectedImprovement(model, simulator)
+        acquisition_function = ExpectedImprovement(model)
         num_candidates = 100
         candidate_set = torch.linspace(-1, 2, num_candidates)
         expected_improvement = acquisition_function(x, y, candidate_set)

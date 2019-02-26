@@ -1,8 +1,8 @@
 import time
 
 import gpytorch
-from matplotlib import pyplot as plt
 import torch
+from matplotlib import pyplot as plt
 
 from invgp.acquisition_function import ExpectedImprovement
 from invgp.model import GP
@@ -50,7 +50,7 @@ def run():
 
     train(model, likelihood)
 
-    acquisition_function = ExpectedImprovement(model, simple_simulator)
+    acquisition_function = ExpectedImprovement(model)
 
     max_iter = 10
     for i in range(max_iter):

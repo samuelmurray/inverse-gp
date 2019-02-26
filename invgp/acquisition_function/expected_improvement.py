@@ -6,10 +6,9 @@ from invgp.model import GP
 
 
 class ExpectedImprovement(gpytorch.Module):
-    def __init__(self, model: GP, simulator) -> None:
+    def __init__(self, model: GP) -> None:
         super().__init__()
         self.model = model
-        self.simulator = simulator
         self.grid_size = 100
 
     def forward(self, x: torch.Tensor, y: torch.Tensor, candidate_set: torch.Tensor) -> torch.Tensor:
