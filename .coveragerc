@@ -3,7 +3,7 @@
 [run]
 branch = True
 source = invgp
-omit = .invgp/examples/*.py, .invgp/tests/*.py, ./invgp/__version__.py, setup.py
+omit = ./invgp/examples/*.py, ./invgp/tests/*.py, ./invgp/__version__.py, setup.py
 
 [report]
 exclude_lines =
