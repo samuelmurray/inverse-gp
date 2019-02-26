@@ -1,0 +1,15 @@
+# .coveragerc to control coverage.py
+
+[run]
+branch = True
+source = invgp
+omit = .invgp/examples/*.py, .invgp/tests/*.py, ./invgp/__version__.py, setup.py
+
+[report]
+exclude_lines =
+    if self.debug:
+    pragma: no cover
+    raise NotImplementedError
+    if __name__ == .__main__.:
+
+ignore_errors = True
