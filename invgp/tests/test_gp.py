@@ -8,7 +8,7 @@ from invgp.model import GP
 from invgp.simulator import HeavySimulator
 
 
-class TestExpectedImprovement(unittest.TestCase):
+class TestGP(unittest.TestCase):
     def setUp(self) -> None:
         np.random.seed(1534315123)
         heavy_simulator = HeavySimulator()
