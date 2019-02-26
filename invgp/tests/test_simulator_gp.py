@@ -13,7 +13,8 @@ class TestSimulatorGP(unittest.TestCase):
         np.random.seed(1534315123)
         simple_simulator = SimpleSimulator()
         heavy_simulator = HeavySimulator()
-        self.input_train = torch.Tensor(np.random.normal(size=[10, 2]))
+        num_train = 10
+        self.input_train = torch.Tensor(np.random.normal(size=[num_train, 2]))
         self.output_train = heavy_simulator(self.input_train)
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = SimulatorGP(self.input_train, self.output_train, self.likelihood, simple_simulator)
