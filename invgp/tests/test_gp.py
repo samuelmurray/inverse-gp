@@ -13,7 +13,7 @@ class TestExpectedImprovement(unittest.TestCase):
         likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.x, self.y, likelihood)
 
-    def test_(self) -> None:
+    def test_get_inputs(self) -> None:
         model_inputs = self.model.get_inputs()
         self.assertTrue(self.x.equal(model_inputs))
 
