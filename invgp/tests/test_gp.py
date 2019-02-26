@@ -10,8 +10,8 @@ class TestExpectedImprovement(unittest.TestCase):
     def setUp(self) -> None:
         self.x = torch.linspace(0, 1, 20).unsqueeze(0)
         self.y = self.x.sin()
-        likelihood = gpytorch.likelihoods.GaussianLikelihood()
-        self.model = GP(self.x, self.y, likelihood)
+        self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
+        self.model = GP(self.x, self.y, self.likelihood)
 
     def test_get_inputs(self) -> None:
         model_inputs = self.model.get_inputs()
