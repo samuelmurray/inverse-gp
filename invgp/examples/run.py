@@ -1,8 +1,8 @@
 import time
 
 import gpytorch
-import torch
 from matplotlib import pyplot as plt
+import torch
 
 from invgp.acquisition_function import ExpectedImprovement
 from invgp.model import GP
