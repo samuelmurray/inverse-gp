@@ -5,7 +5,7 @@ import torch
 from matplotlib import pyplot as plt
 
 from invgp.acquisition_function import ExpectedImprovement
-from invgp.model import GP
+from invgp.model import SimulatorGP
 from invgp.simulator import HeavySimulator, SimpleSimulator
 
 
@@ -45,7 +45,7 @@ def run():
     y = heavy_simulator(x)
 
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
-    model = GP(x, y, likelihood)
+    model = SimulatorGP(x, y, likelihood, simple_simulator)
     print(model.get_inputs()[0])
 
     train(model, likelihood)
