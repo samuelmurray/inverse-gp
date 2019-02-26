@@ -39,10 +39,10 @@ def train(model, likelihood):
 
 
 def run():
-    simulator = HeavySimulator()
+    heavy_simulator = HeavySimulator()
     simple_simulator = SimpleSimulator()
     x = torch.linspace(0, 1, 20)
-    y = simulator(x)
+    y = heavy_simulator(x)
 
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
     model = GP(x, y, likelihood)
@@ -58,7 +58,7 @@ def run():
         expected_improvement = acquisition_function(x, y, candidate_set)
         best_index = torch.argmax(expected_improvement)
         x_new = torch.unsqueeze(candidate_set[best_index], 0)
-        y_new = simulator(x_new)
+        y_new = heavy_simulator(x_new)
         x = torch.cat((x, x_new), 0)
         y = torch.cat((y, y_new), 0)
 
