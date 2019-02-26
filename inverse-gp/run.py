@@ -5,7 +5,7 @@ import gpytorch
 from matplotlib import pyplot as plt
 
 from gp import GP
-from acquisition_functions import AcquisitionFunction
+from acquisition_functions import ExpectedImprovement
 from simulators import SimpleSimulator
 from simulators import HeavySimulator
 
@@ -51,7 +51,7 @@ def run():
 
     train(model, likelihood)
 
-    acquisition_function = AcquisitionFunction(model, simple_simulator)
+    acquisition_function = ExpectedImprovement(model, simple_simulator)
 
     max_iter = 10
     for i in range(max_iter):
