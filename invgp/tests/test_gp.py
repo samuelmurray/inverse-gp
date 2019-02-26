@@ -21,14 +21,6 @@ class TestGP(unittest.TestCase):
         model_inputs = self.model.get_inputs()
         self.assertTrue(torch.equal(self.input_train, model_inputs))
 
-    def test_predict(self) -> None:
-        with torch.no_grad():
-            self.model.eval()
-            num_test = 5
-            input_test = torch.Tensor(np.random.normal(size=[num_test, 2]))
-            predictions = self.model(input_test).mean
-            self.assertEqual(num_test, predictions.shape[0])
-
 
 if __name__ == "__main__":
     unittest.main()
