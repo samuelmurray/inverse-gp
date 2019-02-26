@@ -1,7 +1,9 @@
 import torch
 
+from simulator import Simulator
 
-class SimpleSimulator:
+
+class SimpleSimulator(Simulator):
     def __init__(self) -> None:
         pass
 
