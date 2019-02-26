@@ -4,10 +4,9 @@ import gpytorch
 import torch
 from matplotlib import pyplot as plt
 
-from acquisition_function import ExpectedImprovement
-from model import GP
-from simulator import HeavySimulator
-from simulator import SimpleSimulator
+from invgp.acquisition_function import ExpectedImprovement
+from invgp.model import GP
+from invgp.simulator import HeavySimulator, SimpleSimulator
 
 
 def train(model, likelihood):

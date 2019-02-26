@@ -4,9 +4,9 @@ import gpytorch
 import numpy as np
 import torch
 
-from acquisition_function import ExpectedImprovement
-from model import GP
-from simulator import SimpleSimulator
+from invgp.acquisition_function import ExpectedImprovement
+from invgp.model import GP
+from invgp.simulator import SimpleSimulator
 
 
 class TestExpectedImprovement(unittest.TestCase):

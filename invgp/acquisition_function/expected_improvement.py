@@ -2,7 +2,7 @@ import gpytorch
 import torch
 from torch.distributions.normal import Normal
 
-from model import GP
+from invgp.model import GP
 
 
 class ExpectedImprovement(gpytorch.Module):

@@ -2,7 +2,7 @@ import unittest
 
 import torch
 
-from simulator import *
+from invgp.simulator import *
 
 
 class TestSimulator(unittest.TestCase):
