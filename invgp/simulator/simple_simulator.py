@@ -1,6 +1,6 @@
 import torch
 
-from simulator.simulator import Simulator
+from .simulator import Simulator
 
 
 class SimpleSimulator(Simulator):
