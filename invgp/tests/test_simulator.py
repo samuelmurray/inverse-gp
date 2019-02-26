@@ -17,9 +17,8 @@ class TestHeavySimulator(unittest.TestCase):
 
     def test_call(self) -> None:
         num_data = 10
-        num_dim = 2
         simulator = HeavySimulator()
-        x = torch.Tensor(np.random.normal(size=[num_data, num_dim]))
+        x = torch.Tensor(np.random.normal(size=[num_data, 2]))
         y = simulator(x)
         self.assertEqual([num_data, 1], y.shape)
 
@@ -30,9 +29,8 @@ class TestSimpleSimulator(unittest.TestCase):
 
     def test_call(self) -> None:
         num_data = 10
-        num_dim = 2
         simulator = SimpleSimulator()
-        x = torch.Tensor(np.random.normal(size=[num_data, num_dim]))
+        x = torch.Tensor(np.random.normal(size=[num_data, 2]))
         y = simulator(x)
         self.assertEqual([num_data, 1], y.shape)
 
