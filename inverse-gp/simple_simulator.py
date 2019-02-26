@@ -1,6 +1,9 @@
+import torch
+
+
 class SimpleSimulator:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
-    def __call__(self, x):
+    def __call__(self, x: torch.Tensor) -> torch.Tensor:
         return x

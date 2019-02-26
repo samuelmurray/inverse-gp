@@ -6,13 +6,13 @@ from gp import GP
 
 
 class AcquisitionFunction(gpytorch.Module):
-    def __init__(self, model: GP, simulator):
+    def __init__(self, model: GP, simulator) -> None:
         super().__init__()
         self.model = model
         self.simulator = simulator
         self.grid_size = 100
 
-    def forward(self, x, y, candidate_set):
+    def forward(self, x: torch.Tensor, y: torch.Tensor, candidate_set: torch.Tensor) -> torch.Tensor:
         self.model.eval()
         self.model.likelihood.eval()
         self.model.set_train_data(x, y, strict=False)
