@@ -1,5 +1,6 @@
 import unittest
 
+import numpy as np
 import torch
 
 from invgp.simulator import *
@@ -13,7 +14,7 @@ class TestSimulator(unittest.TestCase):
 class TestHeavySimulator(unittest.TestCase):
     def test_call(self) -> None:
         simulator = HeavySimulator()
-        x = torch.linspace(0, 1, 20)
+        x = torch.Tensor(np.random.normal(size=[10, 2]))
         y = simulator(x)
         self.assertEqual(x.shape, y.shape)
 
@@ -21,7 +22,7 @@ class TestHeavySimulator(unittest.TestCase):
 class TestSimpleSimulator(unittest.TestCase):
     def test_call(self) -> None:
         simulator = SimpleSimulator()
-        x = torch.linspace(0, 1, 20)
+        x = torch.Tensor(np.random.normal(size=[10, 2]))
         y = simulator(x)
         self.assertEqual(x.shape, y.shape)
 
