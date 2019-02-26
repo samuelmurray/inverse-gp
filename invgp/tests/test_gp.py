@@ -5,14 +5,14 @@ import numpy as np
 import torch
 
 from invgp.model import GP
-from invgp.simulator import SimpleSimulator
+from invgp.simulator import HeavySimulator
 
 
 class TestExpectedImprovement(unittest.TestCase):
     def setUp(self) -> None:
         np.random.seed(1534315123)
         self.x = torch.Tensor(np.random.normal(size=[10, 2]))
-        simulator = SimpleSimulator()
+        simulator = HeavySimulator()
         self.y = simulator(self.x)
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.x, self.y, self.likelihood)
