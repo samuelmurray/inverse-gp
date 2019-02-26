@@ -39,6 +39,11 @@ setup(
         "example": [
             "matplotlib",
         ],
+        "test": [
+            "pytest",
+            "pytest-cov",
+            "codecov",
+        ]
     },
     include_package_data=True,
     license=LICENSE,
