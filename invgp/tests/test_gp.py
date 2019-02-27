@@ -27,6 +27,16 @@ class TestGP(unittest.TestCase):
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.input_train, self.output_train, self.likelihood)
 
+    def test_forward_raises_on_1D_input(self):
+        """
+        Only input tensors that are 2D are valid
+        :return:
+        """
+        input_train = torch.linspace(0, 10)
+        output_train = torch.linspace(0, 10)
+        likelihood = gpytorch.likelihoods.GaussianLikelihood()
+        self.assertRaises(ValueError, GP, input_train, output_train, likelihood)
+
     def test_get_inputs(self) -> None:
         """
         Method get_inputs() should return the training data used when instantiating model
