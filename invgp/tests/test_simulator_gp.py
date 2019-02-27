@@ -46,7 +46,7 @@ class TestSimulatorGP(unittest.TestCase):
             num_test = 5
             input_test = torch.Tensor(np.random.normal(size=[num_test, self.input_dim]))
             predictions = self.model(input_test).mean
-            self.assertEqual(np.array([num_test]), predictions.shape)
+            self.assertEqual([num_test], list(predictions.shape))
 
 
 if __name__ == "__main__":
