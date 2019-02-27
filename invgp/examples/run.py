@@ -39,7 +39,6 @@ def train(model, likelihood):
 
 
 def run():
-    from IPython import embed
     heavy_simulator = HeavySimulator()
     simple_simulator = SimpleSimulator()
     x = torch.linspace(0, 1, 20).unsqueeze(1)
