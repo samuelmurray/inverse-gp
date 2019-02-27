@@ -4,6 +4,8 @@ import torch
 
 class GP(gpytorch.models.ExactGP):
     def __init__(self, x: torch.Tensor, y: torch.Tensor, likelihood: gpytorch.likelihoods.Likelihood) -> None:
+        if x.dim() != 2:
+            raise ValueError(f"Input x should be a 2D tensor, but is {x.dim()}D")
         super().__init__(x, y, likelihood)
         self.mean_module = gpytorch.means.ConstantMean()
         self.covariance_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
