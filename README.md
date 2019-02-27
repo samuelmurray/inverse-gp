@@ -14,13 +14,15 @@ $ git clone https://github.com/samuelmurray/inverse-gp
 $ pip install -e .
 ```
 
-This will install all required dependencies. In order to run the examples, some additional packages are required, listed in `setup.py`. Install those separately, or run
-
-```
-$ pip install -e .[examples,test]
-```
+This will install all required dependencies. 
 
 ## Examples
+In order to run the examples, some additional packages are required, listed in `setup.py`. Install those separately, or run
+
+```
+$ pip install -e .[examples]
+```
+
 From the root directory of repository, run
 
 ```
