@@ -1,14 +1,13 @@
-import gpytorch
 import torch
 from torch.distributions.normal import Normal
 
+from .acquisition_function import AcquisitionFunction
 from invgp.model import GP
 
 
-class ExpectedImprovement(gpytorch.Module):
+class ExpectedImprovement(AcquisitionFunction):
     def __init__(self, model: GP) -> None:
-        super().__init__()
-        self.model = model
+        super().__init__(model)
 
     def forward(self, x: torch.Tensor, y: torch.Tensor, candidate_set: torch.Tensor) -> torch.Tensor:
         self.model.eval()
