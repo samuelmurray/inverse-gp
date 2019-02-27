@@ -59,7 +59,6 @@ def run():
     ax3.set_xlim([-1, 2])
     ax1.set_ylim([-3, 3])
     ax2.set_ylim([-3, 3])
-    ax1.legend(['Initial Data'])
     for i in range(max_iter):
         candidate_set = torch.linspace(-1, 2, 100).unsqueeze(1)
         expected_improvement = acquisition_function(x, y, candidate_set)
@@ -82,7 +81,9 @@ def run():
     ax2.plot(test_x.numpy()[:, 0], observed_pred.mean.numpy(), 'b')
     # Shade between the lower and upper confidence bounds
     ax2.fill_between(test_x.numpy()[:, 0], lower.numpy(), upper.numpy(), alpha=0.5)
+    ax1.legend(['Initial Data'])
     ax2.legend(['Observed Data', 'Mean', 'Confidence'])
+    ax3.legend(['Expected Improvement'])
     plt.show()
 
 
