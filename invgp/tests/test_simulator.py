@@ -1,9 +1,6 @@
 import unittest
 
-import numpy as np
-import torch
-
-from invgp.simulator import *
+from invgp.simulator import Simulator
 
 
 class TestSimulator(unittest.TestCase):
