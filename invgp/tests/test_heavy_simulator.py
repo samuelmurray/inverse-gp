@@ -18,6 +18,15 @@ class TestHeavySimulator(unittest.TestCase):
         """
         np.random.seed(1534315123)
 
+    def test_forward_raises_on_1D_input(self):
+        """
+        Only input tensors that are 2D are valid
+        :return:
+        """
+        simulator = HeavySimulator()
+        x = torch.linspace(1, 10)
+        self.assertRaises(ValueError, simulator, x)
+
     def test_forward_return_shape(self) -> None:
         """
         Returned Tensor should be as long as number of datapoints
