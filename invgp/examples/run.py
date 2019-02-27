@@ -46,7 +46,6 @@ def run():
 
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
     model = SimulatorGP(x, y, likelihood, simple_simulator)
-    print(model.get_inputs()[0])
 
     train(model, likelihood)
 
