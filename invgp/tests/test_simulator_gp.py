@@ -9,7 +9,15 @@ from invgp.simulator import HeavySimulator, SimpleSimulator
 
 
 class TestSimulatorGP(unittest.TestCase):
+    """
+    Tests for model.simulator_gp.py
+    """
+
     def setUp(self) -> None:
+        """
+        Reset numpy random seed, create training data and model
+        :return:
+        """
         np.random.seed(1534315123)
         simple_simulator = SimpleSimulator()
         heavy_simulator = HeavySimulator()
@@ -21,10 +29,18 @@ class TestSimulatorGP(unittest.TestCase):
         self.model = SimulatorGP(self.input_train, self.output_train, self.likelihood, simple_simulator)
 
     def test_get_inputs(self) -> None:
+        """
+        Method get_inputs() should return the training data used when instantiating model
+        :return:
+        """
         model_inputs = self.model.get_inputs()
         self.assertTrue(torch.equal(self.input_train, model_inputs))
 
     def test_predict(self) -> None:
+        """
+        Method predict() should return a Distribution, whose mean has shape equal to number of test points
+        :return:
+        """
         with torch.no_grad():
             self.model.eval()
             num_test = 5

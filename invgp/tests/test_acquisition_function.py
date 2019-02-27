@@ -10,7 +10,15 @@ from invgp.simulator import HeavySimulator, SimpleSimulator
 
 
 class TestExpectedImprovement(unittest.TestCase):
+    """
+    Tests for acquisition_function.expected_improvement.py
+    """
+
     def test_call(self) -> None:
+        """
+        Method should return
+        :return:
+        """
         np.random.seed(1534315123)
         simple_simulator = SimpleSimulator()
         heavy_simulator = HeavySimulator()
