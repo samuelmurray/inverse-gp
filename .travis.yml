@@ -5,7 +5,7 @@ language: python
 python:
   - "3.7"
 install:
-  - pip install .[test]
+  - pip install .
   - pip install pytest-cov
   - pip install codecov
 script:
