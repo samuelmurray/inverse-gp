@@ -82,7 +82,7 @@ def run():
     # Shade between the lower and upper confidence bounds
     ax2.fill_between(test_x.numpy()[:, 0], lower.numpy(), upper.numpy(), alpha=0.5)
     ax1.legend(['Initial Data'])
-    ax2.legend(['Observed Data', 'Mean', 'Confidence'])
+    ax2.legend(['Mean', 'Observed Data', 'Confidence'])
     ax3.legend(['Expected Improvement'])
     plt.show()
 
