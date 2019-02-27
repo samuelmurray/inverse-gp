@@ -36,7 +36,7 @@ class TestSimulatorGP(unittest.TestCase):
         model_inputs = self.model.get_inputs()
         self.assertTrue(torch.equal(self.input_train, model_inputs))
 
-    def test_predict(self) -> None:
+    def test_forward_return_shape(self) -> None:
         """
         Method predict() should return a Distribution, whose mean has shape equal to number of test points
         :return:

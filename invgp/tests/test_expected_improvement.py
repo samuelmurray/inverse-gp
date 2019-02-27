@@ -14,7 +14,7 @@ class TestExpectedImprovement(unittest.TestCase):
     Tests for acquisition_function.expected_improvement.py
     """
 
-    def test_call(self) -> None:
+    def test_forward_return_shape(self) -> None:
         """
         Method should return a tensor with shape equal to number of candidate points
         :return:

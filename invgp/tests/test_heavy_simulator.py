@@ -18,7 +18,7 @@ class TestHeavySimulator(unittest.TestCase):
         """
         np.random.seed(1534315123)
 
-    def test_call(self) -> None:
+    def test_forward_return_shape(self) -> None:
         """
         Returned Tensor should be as long as number of datapoints
         :return:
