@@ -21,7 +21,13 @@ $ pip install -e .[examples,test]
 ```
 
 ## Examples
-TODO
+From the root directory of repository, run
+
+```
+$ python3 invgp/examples/run.py
+```
+
+This will create a GP with some given inputs (shown in first figure), then iteratively add new points according to the expected improvement of each input location. The final model is shown in the second plot, with the ordering of new points given in the third plot.
 
 ## Running tests
 We use pytest and codecov for testing our code. First, install pytest, pytest-cov and codecov: 
