@@ -16,7 +16,7 @@ class TestExpectedImprovement(unittest.TestCase):
 
     def test_call(self) -> None:
         """
-        Method should return
+        Method should return a tensor with shape equal to number of candidate points
         :return:
         """
         np.random.seed(1534315123)
