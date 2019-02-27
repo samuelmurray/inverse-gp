@@ -14,7 +14,7 @@ class TestExpectedImprovement(unittest.TestCase):
     Tests for acquisition_function.expected_improvement.py
     """
 
-    def setUp(self):
+    def setUp(self) -> None:
         """
         Reset numpy random seed
         :return:

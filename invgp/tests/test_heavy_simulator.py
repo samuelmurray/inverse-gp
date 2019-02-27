@@ -11,7 +11,7 @@ class TestHeavySimulator(unittest.TestCase):
     Tests for simulator.heavy_simulator.py
     """
 
-    def setUp(self):
+    def setUp(self) -> None:
         """
         Reset numpy random seed
         :return:

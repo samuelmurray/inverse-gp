@@ -11,7 +11,7 @@ class TestSimpleSimulator(unittest.TestCase):
     Tests for simulator.simple_simulator.py
     """
 
-    def setUp(self):
+    def setUp(self) -> None:
         """
         Reset numpy random seed
         :return:
