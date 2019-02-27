@@ -58,7 +58,7 @@ def run():
         candidate_set = torch.linspace(-1, 2, 100).unsqueeze(1)
         expected_improvement = acquisition_function(x, y, candidate_set)
         best_index = torch.argmax(expected_improvement)
-        x_new = torch.unsqueeze(candidate_set[best_index], 0)
+        x_new = candidate_set[best_index].unsqueeze(1)
         y_new = heavy_simulator(x_new)
         x = torch.cat((x, x_new), 0)
         y = torch.cat((y, y_new), 0)
