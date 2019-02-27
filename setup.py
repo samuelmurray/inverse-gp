@@ -7,7 +7,7 @@ DESCRIPTION = "Framework for solving inverse problems using GPs"
 URL = "https://github.com/samuelmurray/inverse-gp"
 EMAIL = "samuelmu@kth.se"
 AUTHOR = "Samuel Murray"
-REQUIRES_PYTHON = ">=3.7"
+REQUIRES_PYTHON = ">=3.6"
 LICENSE = "GNU General Public License v3.0"
 TEST_DIR = "tests"
 
@@ -48,6 +48,7 @@ setup(
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
 )
