@@ -32,7 +32,7 @@ class TestExpectedImprovement(unittest.TestCase):
         num_candidates = 100
         candidate_set = torch.Tensor(np.random.normal(size=[num_candidates, input_dim]))
         expected_improvement = acquisition_function(x, y, candidate_set)
-        self.assertEqual([num_candidates], list(expected_improvement.shape))
+        self.assertEqual(torch.Size([num_candidates]), expected_improvement.shape)
 
 
 if __name__ == "__main__":
