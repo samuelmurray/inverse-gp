@@ -39,9 +39,10 @@ def train(model, likelihood):
 
 
 def run():
+    from IPython import embed
     heavy_simulator = HeavySimulator()
     simple_simulator = SimpleSimulator()
-    x = torch.linspace(0, 1, 20)
+    x = torch.linspace(0, 1, 20).unsqueeze(1)
     y = heavy_simulator(x)
 
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
@@ -54,7 +55,7 @@ def run():
 
     max_iter = 10
     for i in range(max_iter):
-        candidate_set = torch.linspace(-1, 2, 100)
+        candidate_set = torch.linspace(-1, 2, 100).unsqueeze(1)
         expected_improvement = acquisition_function(x, y, candidate_set)
         best_index = torch.argmax(expected_improvement)
         x_new = torch.unsqueeze(candidate_set[best_index], 0)
@@ -63,7 +64,7 @@ def run():
         y = torch.cat((y, y_new), 0)
 
         with torch.no_grad():
-            test_x = torch.linspace(-1, 2, 200)
+            test_x = torch.linspace(-1, 2, 200).unsqueeze(1)
             observed_pred = likelihood(model(test_x))
             # Initialize plot
             f, (ax1, ax2) = plt.subplots(2, 1, figsize=(4, 3))
@@ -71,15 +72,15 @@ def run():
             # Get upper and lower confidence bounds
             lower, upper = observed_pred.confidence_region()
             # Plot training data as black stars
-            ax1.plot(x.numpy(), y.numpy(), 'k*')
+            ax1.plot(x.numpy()[:, 0], y.numpy(), 'k*')
             # Plot predictive means as blue line
-            ax1.plot(test_x.numpy(), observed_pred.mean.numpy(), 'b')
+            ax1.plot(test_x.numpy()[:, 0], observed_pred.mean.numpy(), 'b')
             # Shade between the lower and upper confidence bounds
-            ax1.fill_between(test_x.numpy(), lower.numpy(), upper.numpy(), alpha=0.5)
+            ax1.fill_between(test_x.numpy()[:, 0], lower.numpy(), upper.numpy(), alpha=0.5)
             ax1.set_ylim([-3, 3])
             ax1.legend(['Observed Data', 'Mean', 'Confidence'])
 
-            ax2.plot(candidate_set.numpy(), expected_improvement.numpy())
+            ax2.plot(candidate_set.numpy()[:, 0], expected_improvement.numpy())
             ax2.scatter(x_new, expected_improvement[best_index])
 
             plt.show()
