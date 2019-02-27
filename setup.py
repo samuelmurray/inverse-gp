@@ -39,9 +39,6 @@ setup(
         "example": [
             "matplotlib",
         ],
-        "test": [
-            "pytest",
-        ]
     },
     include_package_data=True,
     license=LICENSE,
