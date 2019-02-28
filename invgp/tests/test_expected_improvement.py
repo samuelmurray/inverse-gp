@@ -30,13 +30,13 @@ class TestExpectedImprovement(unittest.TestCase):
         heavy_simulator = HeavySimulator()
         num_data = 10
         input_dim = 2
-        x = torch.Tensor(np.random.normal(size=[num_data, input_dim]))
+        x = torch.as_tensor(np.random.normal(size=[num_data, input_dim]), dtype=torch.float32)
         y = heavy_simulator(x)
         likelihood = gpytorch.likelihoods.GaussianLikelihood()
         model = SimulatorGP(x, y, likelihood, simple_simulator)
         acquisition_function = ExpectedImprovement(model)
         num_candidates = 100
-        candidate_set = torch.Tensor(np.random.normal(size=[num_candidates, input_dim]))
+        candidate_set = torch.as_tensor(np.random.normal(size=[num_candidates, input_dim]), dtype=torch.float32)
         expected_improvement = acquisition_function(x, y, candidate_set)
         self.assertEqual(torch.Size([num_candidates]), expected_improvement.shape)
 

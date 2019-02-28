@@ -21,7 +21,7 @@ class ExpectedImprovement(AcquisitionFunction):
         best_y = torch.max(y)
 
         u = (best_y - mu) / std
-        m = Normal(torch.Tensor([0.0]), torch.Tensor([1.0]))
+        m = Normal(torch.tensor([0.0]), torch.tensor([1.0]))
         ucdf = m.cdf(u)
         updf = torch.exp(m.log_prob(u))
         expected_improvement = var * (updf + u * ucdf)

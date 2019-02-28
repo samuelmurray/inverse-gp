@@ -22,7 +22,7 @@ class TestGP(unittest.TestCase):
         heavy_simulator = HeavySimulator()
         num_train = 10
         self.input_dim = 2
-        self.input_train = torch.Tensor(np.random.normal(size=[num_train, self.input_dim]))
+        self.input_train = torch.as_tensor(np.random.normal(size=[num_train, self.input_dim]), dtype=torch.float32)
         self.output_train = heavy_simulator(self.input_train)
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.input_train, self.output_train, self.likelihood)
@@ -53,7 +53,7 @@ class TestGP(unittest.TestCase):
         with torch.no_grad():
             self.model.eval()
             num_test = 5
-            input_test = torch.Tensor(np.random.normal(size=[num_test, self.input_dim]))
+            input_test = torch.as_tensor(np.random.normal(size=[num_test, self.input_dim]), dtype=torch.float32)
             predictions = self.model(input_test).mean
             self.assertEqual(torch.Size([num_test]), predictions.shape)
 
