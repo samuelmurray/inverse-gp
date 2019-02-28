@@ -20,6 +20,7 @@ class TestExpectedImprovement(unittest.TestCase):
         :return:
         """
         np.random.seed(1534315123)
+        torch.manual_seed(163153413413512)
 
     def test_forward_return_shape(self) -> None:
         """

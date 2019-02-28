@@ -19,6 +19,7 @@ class TestSimulatorGP(unittest.TestCase):
         :return:
         """
         np.random.seed(1534315123)
+        torch.manual_seed(163153413413512)
         simple_simulator = SimpleSimulator()
         heavy_simulator = HeavySimulator()
         num_train = 10

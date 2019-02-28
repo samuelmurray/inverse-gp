@@ -17,6 +17,7 @@ class TestHeavySimulator(unittest.TestCase):
         :return:
         """
         np.random.seed(1534315123)
+        torch.manual_seed(163153413413512)
 
     def test_forward_raises_on_1D_input(self):
         """
