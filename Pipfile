@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[requires]
+python_version = "3.7"
+
+[packages]
+invgp = {editable = true,path = "."}
+gpytorch = "*"
+numpy = "*"
+torch = "*"
+
+[dev-packages]
+pytest = "*"
