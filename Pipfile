@@ -13,6 +13,4 @@ numpy = "*"
 torch = "*"
 
 [dev-packages]
-codecov = "*"
 pytest = "*"
-pytest-cov = "*"

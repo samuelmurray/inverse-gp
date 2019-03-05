@@ -7,7 +7,9 @@ python:
   - "3.7"
 install:
   - pip install pipenv
-  - pipenv install . --dev --ignore-pipfile --system
+  - pipenv install --dev --ignore-pipfile --system
+  - pipenv install pytest-cov
+  - pipenv install codecov
 script:
   - pipenv run pytest --cov=./
 after_success:
