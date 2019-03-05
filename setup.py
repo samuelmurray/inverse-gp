@@ -7,15 +7,9 @@ DESCRIPTION = "Framework for solving inverse problems using GPs"
 URL = "https://github.com/samuelmurray/inverse-gp"
 EMAIL = "samuelmu@kth.se"
 AUTHOR = "Samuel Murray"
-REQUIRES_PYTHON = ">=3.6"
+REQUIRES_PYTHON = ">=3.7"
 LICENSE = "GNU General Public License v3.0"
 TEST_DIR = "tests"
-
-REQUIRED = [
-    "numpy",
-    "torch",
-    "gpytorch",
-]
 
 # Read version number
 version_dummy = {}
@@ -34,9 +28,8 @@ setup(
     url=URL,
     packages=find_packages(exclude=(TEST_DIR,)),
     test_suite=NAME + "." + TEST_DIR,
-    install_requires=REQUIRED,
     extras_require={
-        "example": [
+        "plotting": [
             "matplotlib",
         ],
     },
@@ -48,7 +41,6 @@ setup(
         "Development Status :: 2 - Pre-Alpha",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
 )
