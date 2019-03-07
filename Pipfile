@@ -9,8 +9,11 @@ python_version = "3.7"
 [packages]
 invgp = {editable = true,path = "."}
 gpytorch = "*"
+matplotlib = "*"
 numpy = "*"
 torch = "*"
 
 [dev-packages]
+codecov = "*"
 pytest = "*"
+pytest-cov = "*"

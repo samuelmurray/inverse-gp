@@ -8,8 +8,6 @@ python:
 install:
   - pip install pipenv
   - pipenv install --dev --ignore-pipfile --system
-  - pipenv install pytest-cov --skip-lock
-  - pipenv install codecov --skip-lock
 script:
   - pipenv run pytest --cov=./
 after_success:

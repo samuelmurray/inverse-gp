@@ -28,11 +28,6 @@ setup(
     url=URL,
     packages=find_packages(exclude=(TEST_DIR,)),
     test_suite=NAME + "." + TEST_DIR,
-    extras_require={
-        "plotting": [
-            "matplotlib",
-        ],
-    },
     include_package_data=True,
     license=LICENSE,
     classifiers=[
