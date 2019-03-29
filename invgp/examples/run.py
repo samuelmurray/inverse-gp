@@ -1,5 +1,3 @@
-import time
-
 import gpytorch
 import torch
 from matplotlib import pyplot as plt
