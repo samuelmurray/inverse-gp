@@ -12,5 +12,6 @@ class AcquisitionFunction(gpytorch.Module, abc.ABC):
         self.model = model
 
     @abc.abstractmethod
-    def forward(self, x: torch.Tensor, y: torch.Tensor, candidate_set: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, y: torch.Tensor,
+                candidate_set: torch.Tensor) -> torch.Tensor:
         raise NotImplementedError
