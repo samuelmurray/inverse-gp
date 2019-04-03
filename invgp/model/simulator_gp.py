@@ -6,8 +6,8 @@ from .gp import GP
 
 
 class SimulatorGP(GP):
-    def __init__(self, x: torch.Tensor, y: torch.Tensor, likelihood: gpytorch.likelihoods.Likelihood,
-                 simulator: Simulator) -> None:
+    def __init__(self, x: torch.Tensor, y: torch.Tensor,
+                 likelihood: gpytorch.likelihoods.Likelihood, simulator: Simulator) -> None:
         super().__init__(x, y, likelihood)
         self.simulator = simulator
 
