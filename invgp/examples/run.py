@@ -3,11 +3,11 @@ import torch
 from matplotlib import pyplot as plt
 
 from invgp.acquisition_function import ExpectedImprovement
-from invgp.model import SimulatorGP
+from invgp.model import GP, SimulatorGP
 from invgp.simulator import HeavySimulator, SimpleSimulator
 
 
-def train(model, likelihood):
+def train(model: GP, likelihood: gpytorch.likelihoods.Likelihood) -> None:
     model.train()
     likelihood.train()
 
@@ -36,7 +36,7 @@ def train(model, likelihood):
         optimizer.step()
 
 
-def run():
+def run() -> None:
     heavy_simulator = HeavySimulator()
     simple_simulator = SimpleSimulator()
     x = torch.linspace(0, 1, 20).unsqueeze(1)
