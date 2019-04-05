@@ -1,4 +1,5 @@
 import os
+from typing import Dict
 
 from setuptools import setup, find_packages
 
@@ -12,7 +13,7 @@ LICENSE = "GNU General Public License v3.0"
 TEST_DIR = "tests"
 
 # Read version number
-version_dummy = {}
+version_dummy: Dict[str, str] = {}
 with open(os.path.join(NAME, '__version__.py')) as f:
     exec(f.read(), version_dummy)
 VERSION = version_dummy["__version__"]
