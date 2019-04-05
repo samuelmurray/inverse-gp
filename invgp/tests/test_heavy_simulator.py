@@ -19,7 +19,7 @@ class TestHeavySimulator(unittest.TestCase):
         np.random.seed(1534315123)
         torch.manual_seed(163153413413512)
 
-    def test_forward_raises_on_1D_input(self):
+    def test_forward_raises_on_1D_input(self) -> None:
         """
         Only input tensors that are 2D are valid
         :return:
