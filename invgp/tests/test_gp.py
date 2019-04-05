@@ -29,7 +29,7 @@ class TestGP(unittest.TestCase):
         self.likelihood = gpytorch.likelihoods.GaussianLikelihood()
         self.model = GP(self.input_train, self.output_train, self.likelihood)
 
-    def test_forward_raises_on_1D_input(self):
+    def test_forward_raises_on_1D_input(self) -> None:
         """
         Only input tensors that are 2D are valid
         :return:
