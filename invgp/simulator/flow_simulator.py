@@ -30,7 +30,6 @@ class FlowSimulator(Simulator):
     def rhs_fwd(x: np.ndarray) -> np.ndarray:
         """ RHS of the forward problem: dX/dt=f(X(t))
         :param x: d-by-1 vector, solution variable
-        :param t: scalar, time
         """
         rhs = np.zeros(len(x))
         rhs[0] = -x[0] + 10.0 * x[1]
