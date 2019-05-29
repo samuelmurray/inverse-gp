@@ -6,6 +6,11 @@ import torch
 from .simulator import Simulator
 
 
+# TODO: The dimensions of matrices are not the same as expected in my other code.
+#       It's expected that the forward method takes in a NxD matrix,
+#       where N is the number of data points, and D is the dimension.
+#       I.e. the calling code should not have the know about time steps etc.
+
 class FlowSimulator(Simulator):
     def __init__(self, dt: float, nt: int) -> None:
         super().__init__()
