@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 from invgp.acquisition_function import ExpectedImprovement
 from invgp.model import GP, SimulatorGP
-from invgp.simulator import HeavySimulator, SimpleSimulator
+from invgp.simulator import FlowSimulator, HeavySimulator, SimpleSimulator
 
 
 def train(model: GP, likelihood: gpytorch.likelihoods.Likelihood) -> None:
@@ -37,7 +37,9 @@ def train(model: GP, likelihood: gpytorch.likelihoods.Likelihood) -> None:
 
 
 def run() -> None:
-    heavy_simulator = HeavySimulator()
+    dt = 0.01
+    nt = 200
+    heavy_simulator = FlowSimulator(dt, nt)
     simple_simulator = SimpleSimulator()
     x = torch.linspace(0, 1, 20).unsqueeze(1)
     y = heavy_simulator(x)
