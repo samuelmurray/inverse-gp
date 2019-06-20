@@ -11,10 +11,7 @@ def train(model: GP, likelihood: gpytorch.likelihoods.Likelihood) -> None:
     model.train()
     likelihood.train()
 
-    # Use the adam optimizer
-    optimizer = torch.optim.Adam([
-        {'params': model.parameters()},  # Includes GaussianLikelihood parameters
-    ], lr=0.1)
+    optimizer = torch.optim.Adam([{'params': model.parameters()}], lr=0.1)  # type: ignore
 
     # "Loss" for GPs - the marginal log likelihood
     mll = gpytorch.mlls.ExactMarginalLogLikelihood(likelihood, model)
