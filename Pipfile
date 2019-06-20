@@ -15,9 +15,9 @@ torch = "*"
 
 [dev-packages]
 codecov = "*"
+ipython = "*"
 pytest = "*"
 pytest-codestyle = "*"
 pytest-cov = "*"
 pytest-flakes = "*"
 pytest-mypy = "*"
-ipython = "*"
